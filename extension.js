@@ -96,13 +96,12 @@ const WorkspaceIndicator = new Lang.Class({
 			this._workspaceSection.addMenuItem(this.workspacesItems[i]);
 			this.workspacesItems[i].workspaceId = i;
 			this.workspacesItems[i].label_actor = this.statusLabel;
-			let self = this;
 			this.workspacesItems[i].connect('activate', Lang.bind(this, function(actor, event) {
-			this._activate(actor.workspaceId);
+				this._activate(actor.workspaceId);
 			}));
 
 			if (i == this._currentWorkspace)
-			this.workspacesItems[i].setOrnament(PopupMenu.Ornament.DOT);
+				this.workspacesItems[i].setOrnament(PopupMenu.Ornament.DOT);
 		}
 
 		this.statusLabel.set_text(this._labelText());
